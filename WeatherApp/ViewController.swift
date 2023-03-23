@@ -42,6 +42,7 @@ class ViewController: UIViewController {
                         // String:Any -> Gelecek veri int vb. değerler olarak kullanılabilir. Bu şekilde kullanabilmek için Any olarak döndürülüyor.
                         // mutableContainer -> Gelecek veriler array yada dictionary olarak döndürülüyor.
                         
+                        // Alınan veri işleniyor
                         DispatchQueue.main.async {
                             if let main = jsonResponse!["main"] as? [String:Any] {
                                 if let temp = main["temp"] as? Double {
