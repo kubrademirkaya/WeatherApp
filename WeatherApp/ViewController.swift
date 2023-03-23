@@ -47,7 +47,7 @@ class ViewController: UIViewController {
                                 if let temp = main["temp"] as? Double {
                                     self.currentTempLabel.text = String(Int(temp-272.15))
                                 }
-                                if let feels = main["feels"] as? Double {
+                                if let feels = main["feels_like"] as? Double {
                                     self.feelsLikeLabel.text = String(Int(feels-272.15))
                                 }
                             }
