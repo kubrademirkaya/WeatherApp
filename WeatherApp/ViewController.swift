@@ -80,6 +80,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         // mutableContainer -> Gelecek veriler array yada dictionary olarak döndürülüyor.
                         
                         // Alınan veri işleniyor
+                        // DispatchQueue, alınan verilerin UI tarafında görüntülenebilmesi için kullanılır.
                         DispatchQueue.main.async {
                             if let main = jsonResponse!["main"] as? [String:Any] {
                                 if let temp = main["temp"] as? Double {
