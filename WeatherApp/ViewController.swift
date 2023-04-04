@@ -9,7 +9,7 @@
     2. Veriyi almak
     3. Veriyi işlemek
 */
-
+//git kontrol
 
 import UIKit
 import CoreLocation
