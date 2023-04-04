@@ -10,6 +10,7 @@
     3. Veriyi işlemek
 */
 //git kontrol
+//git pull kontrol
 
 import UIKit
 import CoreLocation
