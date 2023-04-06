@@ -17,6 +17,10 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
+    @IBOutlet weak var seaLevelLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var maxTempLabel: UILabel!
+    @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var windSpeedLabel: UILabel!
@@ -85,16 +89,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         DispatchQueue.main.async {
                             if let main = jsonResponse!["main"] as? [String:Any] {
                                 if let temp = main["temp"] as? Double {
-                                    self.currentTempLabel.text = String(Int(temp-272.15))
+                                    let tempString = (String(Int(temp-272.15)))
+                                    self.currentTempLabel.text = "\(tempString)°"
                                 }
                                 if let feels = main["feels_like"] as? Double {
-                                    self.feelsLikeLabel.text = String(Int(feels-272.15))
+                                    let feelsString = String(Int(feels-272.15))
+                                    self.feelsLikeLabel.text = "\(feelsString)°"
+                                }
+                                if let tempMin = main["temp_min"] as? Double {
+                                   let tempMinString = String(Int(tempMin-272.15))
+                                    self.minTempLabel.text = "\(tempMinString)°"
+                                }
+                                if let tempMax = main["temp_max"] as? Double {
+                                    let tempMaxString = String(Int(tempMax-272.15))
+                                    self.maxTempLabel.text = "\(tempMaxString)°"
+                                }
+                                if let humidity = main["humidity"] as? Double {
+                                    self.humidityLabel.text = String(Int(humidity))
+                                }
+                                if let seaLevel = main["sea_level"] as? Double {
+                                    self.seaLevelLabel.text = String(Int(seaLevel))
                                 }
                             }
                             if let wind = jsonResponse!["wind"] as? [String:Any] {
                                 if let speed = wind["speed"] as? Double {
                                     self.windSpeedLabel.text = String(Int(speed))
-                                    print(String(Int(speed)))
                                 }
                             }
                             if let weatherArray = jsonResponse!["weather"] as? [[String:Any]] {
